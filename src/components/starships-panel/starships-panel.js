@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import StarshipDetails from '../starship-details'
+import StarshipsDetails from '../starships-details'
 import ItemList from '../item-list'
 import ErrorIndicator from '../error-indicator';
 
@@ -7,20 +7,20 @@ import ErrorIndicator from '../error-indicator';
 
 export default class StarshipsPanel extends Component {
   state = {
-    selectedPerson: null,
+    selectedStarships: null,
     hasError: false
   }
 
   componentDidMount() {
-    const randomIdPerson = Math.floor(Math.random()*83) + 1;
+    const randomIdStarships = Math.floor(Math.random()*16) + 2;
     this.setState({
-      selectedPerson: randomIdPerson
+      selectedStarships: randomIdStarships
     })
   }
 
-  onPersonSelected = (id) => {
+  onStarshipsSelected = (id) => {
     this.setState({
-      selectedPerson: id
+      selectedStarships: id
     });
   };
 
@@ -40,12 +40,12 @@ export default class StarshipsPanel extends Component {
       <div className="row mb2">
         <div className="col-md-6">
           <ItemList 
-            onItemSelected={this.onPersonSelected}
-            getDate={this.props.getDate}
+            onItemSelected={this.onStarshipsSelected}
+            getData={this.props.getStarships}
           />
         </div>
         <div className="col-md-6">
-          <StarshipDetails personId={this.state.selectedPerson}/>
+          <StarshipsDetails starshipsId={this.state.selectedStarships}/>
         </div>
       </div>
     )

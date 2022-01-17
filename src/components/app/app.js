@@ -5,8 +5,8 @@ import RandomPlanet from '../random-planet'
 import ErrorIndicator from '../error-indicator'
 import SwapiService from '../../services/swapi/swapi-service';
 import PeoplePanel from '../people-panel';
-// import StarshipsPanel from '../starships-panel';
-// import PlanetPanel from '../planet-panel';
+import StarshipsPanel from '../starships-panel';
+import PlanetPanel from '../planet-panel';
 
 
 
@@ -31,9 +31,9 @@ export default class App extends Component {
       <div>
           <Header />
           <RandomPlanet />
-          <PeoplePanel getPeople = {this.swapiService.getAllStarships} />
-          {/* <StarshipsPanel getDate = {this.swapiService.getAllStarship} /> */}
-          {/* <PlanetPanel getDate = {this.swapiService.getAllPlanet} /> */}
+          <PeoplePanel getPeople = {this.swapiService.getAllPeople} />
+          <StarshipsPanel getStarships = {this.swapiService.getAllStarships} />
+          <PlanetPanel getPlanet = {this.swapiService.getAllPlanets} />
       </div>
     )
   }

@@ -27,11 +27,11 @@ export default class SwapiService {
   }
   getAllStarships = async () => {
     const res = await this.getResource(`/starships/`);
-    return res.results.map(this._transformStarship);
+    return res.results.map(this._transformStarships);
   }
-  getStarship = async (id) => {
-    const starship = await this.getResource(`/starships/${id}`);
-    return this._transformStarship(starship)
+  getStarships = async (id) => {
+    const starships = await this.getResource(`/starships/${id}`);
+    return this._transformStarships(starships)
   }
   _extractId(item) {
     const idRegExp = /\/([0-9]*)\/$/;
@@ -46,16 +46,16 @@ export default class SwapiService {
       name :planet.name
     }
   }
-  _transformStarship = (starship) => {
+  _transformStarships = (starships) => {
     return {
-      id: this._extractId(starship),
-      name: starship.name,
-      model: starship.model,
-      manufacturer : starship.manufacturer,
-      costInCredits: starship.costInCredits,
-      lengthcrew: starship.lengthcrew,
-      passengers: starship.passengers,
-      cargoCapacity: starship.cargoCapacity
+      id: this._extractId(starships),
+      name: starships.name,
+      model: starships.model,
+      manufacturer : starships.manufacturer,
+      costInCredits: starships.costInCredits,
+      lengthcrew: starships.lengthcrew,
+      passengers: starships.passengers,
+      cargoCapacity: starships.cargoCapacity
     }
   }
   _transformPerson = (person) => {

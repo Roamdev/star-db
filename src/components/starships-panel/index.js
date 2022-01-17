@@ -1,3 +1,3 @@
-import StarshipsPanel from './Starships-panel';
+import StarshipsPanel from './starships-panel';
 
 export default StarshipsPanel;
